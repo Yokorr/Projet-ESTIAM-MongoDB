@@ -1,0 +1,38 @@
+# Dépendances Node.js (Backend & Frontend)
+node_modules/
+
+# Fichiers d'environnement (⚠️ TRÈS IMPORTANT : Ne jamais commit les mots de passe et URI de BDD)
+.env
+.env.local
+.env.*.local
+
+# Dossiers de compilation (Générés par Vite / React lors de la mise en production)
+dist/
+dist-ssr/
+build/
+coverage/
+
+# Fichiers de logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers générés par le système d'exploitation
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Fichiers générés par les éditeurs de code (VS Code, WebStorm, etc.)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
