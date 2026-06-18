@@ -83,16 +83,31 @@ const seedData = async () => {
   }
 
   console.log('Creating Products...');
+  const keywordsMap = {
+    'Informatique': 'laptop',
+    'Smartphones': 'smartphone',
+    'Jeux Vidéo': 'gaming',
+    'Maison': 'furniture',
+    'Livres': 'books',
+    'Sports': 'sports',
+    'Bricolage': 'tools',
+    'Mode': 'fashion',
+    'Beauté': 'makeup',
+    'Jouets': 'toys'
+  };
+
   const products = [];
   for (let i = 0; i < 15; i++) { // More than 10
     const cat = categories[i % categories.length];
     const sup = suppliers[i % suppliers.length];
+    const keyword = keywordsMap[cat.name] || 'product';
+    
     products.push(await Product.create({
       name: `Produit ${cat.name} ${i+1}`,
       description: `Un excellent produit de la catégorie ${cat.name}`,
       price: (Math.random() * 500 + 10).toFixed(2),
       stock: Math.floor(Math.random() * 100),
-      imageUrl: `https://picsum.photos/seed/${i}/400/400`,
+      imageUrl: `https://loremflickr.com/400/400/${keyword}?lock=${i}`,
       categoryId: cat._id,
       supplierId: sup._id,
       specifications: { "Poids": `${i}kg`, "Couleur": "Noir" }

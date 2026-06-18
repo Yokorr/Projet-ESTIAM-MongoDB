@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import connectDB from './config/db.js';
 
 import demoRoutes from './routes/demoRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 
 // Load env vars
 dotenv.config();
@@ -25,6 +26,9 @@ if (process.env.NODE_ENV !== 'production') {
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
+
+// E-commerce Routes
+app.use('/api/products', productRoutes);
 
 // Demo Routes for Presentation
 app.use('/api/demo', demoRoutes);
